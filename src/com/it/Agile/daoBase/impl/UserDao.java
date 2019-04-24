@@ -4,7 +4,7 @@ import com.it.Agile.bean.TB_User;
 import com.it.Agile.daoBase.BaseDao;
 
 /**
- * UserDao与TB_User绑定
+ * UserDao与User绑定
  * */
 public class UserDao extends BaseDao<TB_User, Integer> {
 	public UserDao() {
