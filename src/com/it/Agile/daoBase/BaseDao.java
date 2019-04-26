@@ -2,7 +2,6 @@ package com.it.Agile.daoBase;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,6 +41,7 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 		if (!isAsc)
 			asc = "desc";
 		String sql = "select * from " + entityClass.getSimpleName() + " order by " + orderBy + " " + asc;
+		//System.out.println(sql);
 		return getAll(sql);
 	}
 
@@ -50,18 +50,8 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 		String asc = "asc";
 		if (isAsc)
 			asc = "desc";
-		String sql = "select * from " + entityClass.getSimpleName() + " where " + propertyName + " = ";
-		/* string类型和int类型转换 */
-		if (value instanceof String) {
-			sql += " '" + value + "'";
-		} else if (value instanceof Integer) {
-			sql += value;
-		} else if (value instanceof BigDecimal) {
-			sql += " '" + value + "' ";
-		} else {
-			System.out.println("类型转换尚未完成");
-		}
-		sql += " order by " + orderBy + " " + asc;
+		String sql = "select * from " + entityClass.getSimpleName() + " where " + propertyName + " = " + value
+				+ " order by " + orderBy + " " + asc;
 		return getAll(sql);
 	}
 
@@ -70,8 +60,11 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
+	/**
+	 * 
+	 */
 	public void save(T entity) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -84,15 +77,11 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 			for (int i = 0; i < fields.length; i++) {
 				fields[i].setAccessible(true);
 				keys += fields[i].getName();
-				System.out.println(fields[i].get(entity));
 				switch (fields[i].get(entity).getClass().getSimpleName()) {
 				case "String":
 					values += " '" + fields[i].get(entity) + "' ";
 					break;
 				case "int":
-					values += fields[i].get(entity);
-					break;
-				case "BigDecimal":
 					values += fields[i].get(entity);
 					break;
 				default:
@@ -158,13 +147,14 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 	}
 
 	private List<T> getAll(String sql) {
-		System.out.println(sql);
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		ArrayList<Object> aList = null;
 		try {
+			//System.out.println(1);
 			connection = DBUtil.getConnection();
+			//System.out.println(2);
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();
 			aList = new ArrayList<>();
