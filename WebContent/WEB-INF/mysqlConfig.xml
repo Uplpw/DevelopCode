@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-	<ip>XXX.XXX.XXX.XXX</ip>
-	<port>XXX</port>
-	<database>XXXXX</database>
-	<user>XXXXX</user>
-	<password>XXXXX</password>
+	<ip>XXXXXX</ip>
+	<port>xxxxxx</port>
+	<database>xxxx</database>
+	<user>agile</user>
+	<password>agile</password>
 </config>
