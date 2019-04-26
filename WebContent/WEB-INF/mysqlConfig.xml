@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 	<ip>abcd</ip>
-	<port>xxxxxx</port>
+	<port>8848</port>
 	<database>xxxx</database>
 	<user>xxxx</user>
 	<password>xxx</password>
