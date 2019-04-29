@@ -38,8 +38,8 @@
 		<div class="logo">
 			<div class="logo_left">
 				&ensp;&ensp;&ensp;&ensp;&ensp;
-				<a href="/Agile/InitPicture?type=register" target="_parent">注册</a>&ensp;
-				<a href="/Agile/InitPicture?type=login" target="_parent">登陆</a>&ensp;
+				<a href="/Agile/InitPictureServlet?type=register" target="_parent">注册</a>&ensp;
+				<a href="/Agile/InitPictureServlet?type=login" target="_parent">登陆</a>&ensp;
 				<a href="/Agile/LogoutServlet" target="_parent">退出</a>
 			</div>
 			

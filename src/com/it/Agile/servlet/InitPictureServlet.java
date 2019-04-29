@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.it.Agile.bean.TB_Picture;
 import com.it.Agile.daoBase.impl.PictureDao;
 
-@WebServlet("/InitPicture")
+@WebServlet("/InitPictureServlet")
 public class InitPictureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
