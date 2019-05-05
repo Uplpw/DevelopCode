@@ -25,7 +25,7 @@ public class AboutUsServlet extends HttpServlet {
 		String type=request.getParameter("type");
 		System.out.println(type);
 		if ("a".equals(type)) {
-			// ╧ьсзнрцг║╙║╙ил╪р╪Р╫И
+			// О©╫О©╫О©╫О©╫О©╫О©╫О©╫г║О©╫О©╫О©╫О©╫л╪р╪О©╫О©╫
 			System.out.println("shangjiajianjie");
 			AboutUsDao dao = new AboutUsDao();
 			TB_AboutUs au = dao.selectA();
@@ -36,14 +36,14 @@ public class AboutUsServlet extends HttpServlet {
 
 
 		} else if ("b".equals(type)) {
-			// ╧ьсзнрцг║╙║╙ил╪рупф╦
+			// О©╫О©╫О©╫О©╫О©╫О©╫О©╫г║О©╫О©╫О©╫О©╫л╪О©╫О©╫О©╫ф╦
 			AboutUsDao dao = new AboutUsDao();
 			TB_AboutUs au = dao.selectB();
 			request.setAttribute("au", au);
 			request.getRequestDispatcher("view/main/aboutus.jsp").forward(request, response);
 
 		} else if ("c".equals(type)) {
-			// ╧ьсзнрцг║╙║╙ил╪р╪сцк
+			// О©╫О©╫О©╫О©╫О©╫О©╫О©╫г║О©╫О©╫О©╫О©╫л╪р╪О©╫О©╫О©╫
 			AboutUsDao dao = new AboutUsDao();
 			TB_AboutUs au = dao.selectC();
 			request.setAttribute("au", au);

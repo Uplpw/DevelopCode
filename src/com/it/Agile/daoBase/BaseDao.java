@@ -54,11 +54,23 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 				+ " order by " + orderBy + " " + asc;
 		return getAll(sql);
 	}
-
+	
+	/*
+	 * 模糊查询(non-Javadoc)
+	 * @see com.it.Agile.daoBase.IBaseDao#findLike(java.lang.String, java.lang.Object, java.lang.String, boolean)
+	 */
 	@Override
 	public List<T> findLike(String propertyName, Object value, String orderBy, boolean isAsc) {
 		// TODO Auto-generated method stub
-		return null;
+		String asc = "asc";
+		if (isAsc) {
+			asc = "desc";
+		}
+		String sql = "select * from " + entityClass.getSimpleName() + " where " + propertyName + " like " +
+				"'%"+ value +"%'" + " order by " + orderBy + " " + asc;
+		System.out.println(sql);
+		return getAll(sql);
+		//return null;
 	}
 	
 	@Override
@@ -82,6 +94,9 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 					values += " '" + fields[i].get(entity) + "' ";
 					break;
 				case "int":
+					values += fields[i].get(entity);
+					break;
+				case "BigDecimal":
 					values += fields[i].get(entity);
 					break;
 				default:

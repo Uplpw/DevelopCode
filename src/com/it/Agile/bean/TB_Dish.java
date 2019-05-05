@@ -10,45 +10,40 @@ import java.math.BigDecimal;
  *
  */
 public class TB_Dish {
-
-	private String dishName;
-	private BigDecimal dishPrice;
-	private String dishPicture;
-	private String dishCategory;
-
+	
+	private String dishname;
+	private BigDecimal dishprice;
+	private String dishpicture;
+	private String dishcategory;
+	
 	public TB_Dish() {
 	}
-
+	
 	public String getDishName() {
-		return dishName;
+		return dishname;
 	}
-
-	public void setDishName(String dishName) {
-		this.dishName = dishName;
+	public void setDishName(String name) {
+		this.dishname = name;
 	}
-
+	
 	public BigDecimal getDishPrice() {
-		return dishPrice;
+		return dishprice;
 	}
-
-	public void setDishPrice(BigDecimal dishPrice) {
-		this.dishPrice = dishPrice;
+	public void setDishPrice(BigDecimal dishprice) {
+		this.dishprice = dishprice;
 	}
-
+	
 	public String getDishPicture() {
-		return dishPicture;
+		return dishpicture;
 	}
-
-	public void setDishPicture(String dishPicture) {
-		this.dishPicture = dishPicture;
+	public void setDishPicture(String dishpicture) {
+		this.dishpicture = dishpicture;
 	}
-
+	
 	public String getDishCategory() {
-		return dishCategory;
+		return dishcategory;
 	}
-
-	public void setDishCategory(String dishCategory) {
-		this.dishCategory = dishCategory;
+	public void setDishCategory(String dishcategory) {
+		this.dishcategory = dishcategory;
 	}
-
 }
