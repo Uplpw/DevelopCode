@@ -20,6 +20,10 @@
 		<img src="<%=list.get(i).getDishPicture() %>"/>
 		<span class="title"><%=list.get(i).getDishName() %></span>
 		<span class="price">￥<%=list.get(i).getDishPrice().toString() %></span>
+		<a class="canche" href="AddDish?dishpic=<%=list.get(i).getDishPicture() %>&dishname=<%=list.get(i).getDishName() %>&dishprice=<%=list.get(i).getDishPrice() %>" target="_top">加入餐车</a>
+		<!-- <a  class="canche" href="加入餐车" >加入餐车</a> -->
+		<a  class="shoucang" href="加入餐车" >加入收藏</a>
+		<!-- 加入餐车借鉴搜索中的 -->
 	</p>
 	<%		}
 		} 

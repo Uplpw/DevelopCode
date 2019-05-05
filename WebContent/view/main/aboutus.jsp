@@ -21,10 +21,9 @@
 	<div align="center">
 		<span class="layui-breadcrumb" lay-separator="—">
 			<fieldset class="layui-elem-field layui-field-title"
-				style="margin-top: 30px;"></fieldset> 
-				<a href="/Agile/AboutUsServlet?type=a">餐厅简介</a>
-				<a href="AboutUsServlet?type=b">餐厅招聘</a> 
-				<a href="AboutUsServlet?type=c">餐厅加盟</a>
+				style="margin-top: 30px;"></fieldset> <a
+			href="/Agile/AboutUsServlet?type=a">餐厅简介</a> <a
+			href="/Agile/AboutUsServlet?type=b">餐厅招聘</a> <a href="/Agile/AboutUsServlet?type=c">餐厅加盟</a>
 		</span>
 	</div>
 	<div style="margin-top: 30px">
@@ -62,10 +61,6 @@
 					<div class="clearfix"></div>
 				</div>
 			</div>
-
-
-
-
 		</div>
 
 		<script src="/Agile/view/main/layui/layui.js" charset="utf-8"></script>
