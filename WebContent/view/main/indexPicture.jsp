@@ -13,8 +13,12 @@
 </head>
 <body>
 <div class="imgAll1">
-	<% ArrayList<TB_Dish> list=(ArrayList<TB_Dish>)request.getAttribute("list");{
-		for(int i=0;i<list.size();i++){
+	<% //ArrayList<TB_Dish> list=(ArrayList<TB_Dish>)request.getAttribute("list");
+	littlePage pp = (littlePage)request.getAttribute("page");
+	ArrayList<TB_Dish> list=(ArrayList<TB_Dish>)request.getAttribute("dish");
+	System.out.println(list.size());
+	{
+		for(int i=0;i<list.size();i++){ 
 	%>
 	<p class="picture1">
 		<img src="<%=list.get(i).getDishPicture() %>"/>
@@ -28,6 +32,9 @@
 	<%		}
 		} 
 	%>
+	<a   href="/Agile/QueryDishByPageServlert?currentPage=<%=pp.getCurrentPage()-1 %>&pageSize=6" >上一页</a>
+	当前页：<input value="<%=pp.getCurrentPage() %>" readonly="readonly"/>
+	<a   href="/Agile/QueryDishByPageServlert?currentPage=<%=pp.getCurrentPage()+1 %>&pageSize=6" >下一页</a>
 	<!-- <p class="picture1">
 		<img src="http://pic1.win4000.com/wallpaper/9/5450ae2fdef8a.jpg"/>
 		<span class="title">老李家的糖醋鲤鱼</span>

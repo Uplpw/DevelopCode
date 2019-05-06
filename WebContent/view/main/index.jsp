@@ -89,7 +89,7 @@
 		</header>
 
 		<div class="myiframe">
-			<iframe id="option1" name="option1" src="/Agile/IndexPictureServlet" style="overflow: visible;" scrolling="no" frameborder="no" width="100%"
+			<iframe id="option1" name="option1" src="/Agile/QueryDishByPageServlert?currentPage=1&pageSize=6" style="overflow: visible;" scrolling="no" frameborder="no" width="100%"
 			 height="100%">
 			</iframe>
 		</div>
