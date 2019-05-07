@@ -14,7 +14,7 @@
 <body>
 <div class="imgAll1">
 	<% //ArrayList<TB_Dish> list=(ArrayList<TB_Dish>)request.getAttribute("list");
-	littlePage pp = (littlePage)request.getAttribute("page");
+	Page pp = (Page)request.getAttribute("page");
 	ArrayList<TB_Dish> list=(ArrayList<TB_Dish>)request.getAttribute("dish");
 	System.out.println(list.size());
 	{
@@ -32,8 +32,11 @@
 	<%		}
 		} 
 	%>
+	
 	<a   href="/Agile/QueryDishByPageServlert?currentPage=<%=pp.getCurrentPage()-1 %>&pageSize=6" >上一页</a>
-	当前页：<input value="<%=pp.getCurrentPage() %>" readonly="readonly"/>
+	<input value="<%=pp.getCurrentPage() %>" readonly="readonly"/>
+	/
+	<input value="<%=pp.getTotalPage() %>" readonly="readonly"/>
 	<a   href="/Agile/QueryDishByPageServlert?currentPage=<%=pp.getCurrentPage()+1 %>&pageSize=6" >下一页</a>
 	<!-- <p class="picture1">
 		<img src="http://pic1.win4000.com/wallpaper/9/5450ae2fdef8a.jpg"/>

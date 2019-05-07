@@ -18,7 +18,7 @@ public class DishDao extends BaseDao<TB_Dish, Integer> {
 		System.out.println(alldishs.get(0).getDishName());
 		for(int i = 0; i < alldishs.size(); i++)
 		{
-			if( i > (currentPage-1)*pageSize ) {
+			if( i >= (currentPage-1)*pageSize ) {
 				dishs.add(alldishs.get(i));
 				sum++;
 				if(sum==pageSize) break;
