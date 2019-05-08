@@ -1,0 +1,18 @@
+package com.it.Agile.daoBase.impl;
+
+import java.util.ArrayList;
+
+import com.it.Agile.bean.TB_Collection;
+
+import com.it.Agile.daoBase.BaseDao;
+
+public class CollectionDao extends BaseDao<TB_Collection,Integer>{
+	public CollectionDao(){
+		super(TB_Collection.class);
+		
+	}
+	public ArrayList<TB_Collection> getTB_CollectionByUser_Id(String username)
+	{
+		return (ArrayList<TB_Collection>) findBy("username", username, null, true);
+	}
+}
