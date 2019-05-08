@@ -1,0 +1,45 @@
+package com.it.Agile.bean;
+
+import java.math.BigDecimal;
+
+public class TB_Collection {
+
+	private String username;
+	private String dishname;
+	private BigDecimal dishprice;
+	private String dishpicture;
+	private String dishcategory;
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getDishname() {
+		return dishname;
+	}
+	public void setDishname(String dishname) {
+		this.dishname = dishname;
+	}
+	public BigDecimal getDishprice() {
+		return dishprice;
+	}
+	public void setDishprice(BigDecimal dishprice) {
+		this.dishprice = dishprice;
+	}
+	public String getDishpicture() {
+		return dishpicture;
+	}
+	public void setDispicture(String dispicture) {
+		this.dishpicture = dispicture;
+	}
+	public String getDishcategory() {
+		return dishcategory;
+	}
+	public void setDishcategory(String dishcategory) {
+		this.dishcategory = dishcategory;
+	}
+	
+	
+}
