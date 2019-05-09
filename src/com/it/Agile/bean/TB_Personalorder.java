@@ -3,7 +3,7 @@ package com.it.Agile.bean;
 import java.sql.*;
 
 public class TB_Personalorder {
-	private String id;
+	private String id; 
 	private Date ordertime;
 	private String username;
 	private String amount;
