@@ -3,8 +3,8 @@
  */
 package com.it.Agile.daoBase.impl;
 
+import com.it.Agile.daoBase.*;
 import com.it.Agile.bean.TB_Picture;
-import com.it.Agile.daoBase.BaseDao;
 
 /**
  * @author lpw

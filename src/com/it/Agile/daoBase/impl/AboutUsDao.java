@@ -12,7 +12,7 @@ import com.it.Agile.util.DBUtil;
 public class AboutUsDao {
 	
 		
-		//¹ØÓÚÎÒÃÇ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		public TB_AboutUs selectA()
 		{
 			TB_AboutUs au=new TB_AboutUs();
@@ -67,6 +67,32 @@ public class AboutUsDao {
 			TB_AboutUs au=new TB_AboutUs();
 			
 			String sql="SELECT * FROM tb_aboutus WHERE pk=3";
+			Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = null;
+			try {
+				pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery();
+				if(rs.next()) {
+					au.setName(rs.getString("name"));
+					au.setContent(rs.getString("content"));	
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				DBUtil.closeJDBC(null, pstmt, conn);
+			}
+			System.out.println(au.getName());
+			System.out.println(au.getContent());
+			return au;
+		}
+	
+		
+		
+		public TB_AboutUs selectD()
+		{
+			TB_AboutUs au=new TB_AboutUs();
+			
+			String sql="SELECT * FROM tb_aboutus WHERE pk=4";
 			Connection conn = DBUtil.getConnection();
 			PreparedStatement pstmt = null;
 			try {

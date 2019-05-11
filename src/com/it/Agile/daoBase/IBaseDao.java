@@ -35,7 +35,18 @@ public interface IBaseDao<T, PK extends Serializable> {
 	 * @return 一个排序后的实例对象集合
 	 */
 	public List<T> findBy(String propertyName, Object value, String orderBy, boolean isAsc);
-
+	
+	/**
+	 * 
+	 * @param propertyName 属性名字(表的字段名)
+	 * @param valueOne 属性下限值(表的字段值)
+	 * @param valueTwo 属性上限值(表的字段值)
+	 * @param orderBy 排序字段
+	 * @param isAsc 默认正序排序
+	 * @return 一个排序后的实例对象集合
+	 */
+	public List<T> findBetweenProperty(String propertyName, Object valueOne, Object valueTwo, String orderBy, boolean isAsc);
+	
 	/**
 	 * 
 	 * @param propertyName 属性名字(表的字段名)

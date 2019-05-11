@@ -7,30 +7,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.it.Agile.bean.*;
-import com.it.Agile.daoBase.impl.*;
+import com.it.Agile.bean.TB_Collect;
+import com.it.Agile.bean.TB_User;
+import com.it.Agile.daoBase.impl.AddCollectDao;
 
-/**
- * Servlet implementation class IndexPictureServlet
- */
-@WebServlet("/IndexPictureServlet")
-public class IndexPictureServlet extends HttpServlet {
+@WebServlet("/MyCenterCollectServlet")
+public class MyCenterCollectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
-		ArrayList<TB_Dish> list=(ArrayList<TB_Dish>)new DishPictureDao().getAll();
-		
+		TB_User user  = (TB_User)request.getSession().getAttribute("SESSION_APPLICANT");
+		ArrayList<TB_Collect> list=(ArrayList<TB_Collect>)new AddCollectDao().findBy("username", user.getUsername(), "pk", true);
 		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("view/main/indexPicture.jsp").forward(request, response);
+		System.out.println(list);
+		request.getRequestDispatcher("view/center/mycenter.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

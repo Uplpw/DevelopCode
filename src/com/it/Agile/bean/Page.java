@@ -2,7 +2,7 @@ package com.it.Agile.bean;
 
 public class Page {
 	private int currentPage;
-	private int pageSize;
+	private int pageSize;      //一页的图片数量
 	private int totalCount;
 	private int totalPage;
 	

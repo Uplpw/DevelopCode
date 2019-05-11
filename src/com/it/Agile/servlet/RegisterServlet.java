@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.it.Agile.bean.TB_User;
+import com.it.Agile.bean.TB_UserInfo;
 import com.it.Agile.daoBase.impl.UserDao;
+import com.it.Agile.daoBase.impl.UserInfoDao;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -35,6 +37,20 @@ public class RegisterServlet extends HttpServlet {
 			tB_User.setUsername(username);
 			tB_User.setPassword(MD5Util.encode(Base64Util.encode(password)));
 			new UserDao().save(tB_User);
+			
+			/*
+			 * 在userinfo中加入注册时的初始化信息
+			 */
+			TB_UserInfo userinfo = new TB_UserInfo();
+			userinfo.setUsername(username);
+			userinfo.setPetname("用户");
+			userinfo.setUsercredit(0);
+			userinfo.setUserpicture("");
+			userinfo.setUserreal("");
+			userinfo.setUsertelephone("");
+			System.out.println(userinfo.getUserpicture());
+			new UserInfoDao().save(userinfo);
+			
 			response.sendRedirect("/Agile/view/main/login.jsp");
 		} else {
 			// 登录验证

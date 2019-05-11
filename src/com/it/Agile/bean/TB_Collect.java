@@ -1,25 +1,19 @@
+/**
+ * 
+ */
 package com.it.Agile.bean;
 
 import java.math.BigDecimal;
 
-public class TB_Shop {
+/**
+ * @author lpw
+ *
+ */
+public class TB_Collect {
 	private String username;
 	private String dishname;
-	private BigDecimal dishprice;
 	private String dishpicture;
-	private int number;
-	/**
-	 * @return the number
-	 */
-	public int getNumber() {
-		return number;
-	}
-	/**
-	 * @param number the number to set
-	 */
-	public void setNumber(int number) {
-		this.number = number;
-	}
+	private BigDecimal dishprice;
 	/**
 	 * @return the username
 	 */
@@ -45,18 +39,6 @@ public class TB_Shop {
 		this.dishname = dishname;
 	}
 	/**
-	 * @return the dishprice
-	 */
-	public BigDecimal getDishprice() {
-		return dishprice;
-	}
-	/**
-	 * @param dishprice the dishprice to set
-	 */
-	public void setDishprice(BigDecimal dishprice) {
-		this.dishprice = dishprice;
-	}
-	/**
 	 * @return the dishpicture
 	 */
 	public String getDishpicture() {
@@ -67,6 +49,18 @@ public class TB_Shop {
 	 */
 	public void setDishpicture(String dishpicture) {
 		this.dishpicture = dishpicture;
+	}
+	/**
+	 * @return the dishprice
+	 */
+	public BigDecimal getDishprice() {
+		return dishprice;
+	}
+	/**
+	 * @param dishprice the dishprice to set
+	 */
+	public void setDishprice(BigDecimal dishprice) {
+		this.dishprice = dishprice;
 	}
 	
 	

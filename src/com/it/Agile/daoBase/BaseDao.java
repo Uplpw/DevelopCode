@@ -2,12 +2,12 @@ package com.it.Agile.daoBase;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.it.Agile.util.DBUtil;
 
 public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
@@ -50,8 +50,17 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 		String asc = "asc";
 		if (isAsc)
 			asc = "desc";
-		String sql = "select * from " + entityClass.getSimpleName() + " where " + propertyName + " = " + value
-				+ " order by " + orderBy + " " + asc;
+		
+		String sql = "select * from " + entityClass.getSimpleName() + " where " + propertyName;
+		
+		if(value instanceof String) {
+			sql = sql + " = '" + value + "' order by " + orderBy + " " + asc;
+		}else if(value instanceof Integer){
+			sql = sql + " = " + value + " order by " + orderBy + " " + asc;
+		}else {
+			System.out.println("类型转换尚未完成。");
+		}
+		System.out.println(sql);
 		return getAll(sql);
 	}
 	
@@ -93,10 +102,13 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 				case "String":
 					values += " '" + fields[i].get(entity) + "' ";
 					break;
-				case "int":
+				case "Integer":
 					values += fields[i].get(entity);
 					break;
 				case "BigDecimal":
+					values += fields[i].get(entity);
+					break;
+				case "Long":
 					values += fields[i].get(entity);
 					break;
 				default:
@@ -127,7 +139,12 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 
 	@Override
 	public void update(T entity) {
-		// TODO Auto-generated method stub
+		/*Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		Field[] fields = entity.getClass().getDeclaredFields();
+		String sql = "update " + entity.getClass().getSimpleName();
+		sql+=" set status = "+entity.*/
 
 	}
 
@@ -188,5 +205,21 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
 			DBUtil.closeJDBC(resultSet, preparedStatement, connection);
 		}
 		return (List<T>) aList;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.it.Agile.daoBase.IBaseDao#findBetweenProperty(java.lang.String, java.lang.Object, java.lang.Object, java.lang.String, boolean)
+	 */
+	@Override
+	public List<T> findBetweenProperty(String propertyName, Object valueOne, Object valueTwo, String orderBy,
+			boolean isAsc) {
+		String asc = "asc";
+		if (isAsc)
+			asc = "desc";
+		
+		String sql = "select * from " + entityClass.getSimpleName() + " where " + propertyName +
+				" >= " + valueOne + " and " + propertyName +" < "+ valueTwo+ " order by " + orderBy + " " + asc;
+		System.out.println(sql);
+		return getAll(sql);
 	}
 }
