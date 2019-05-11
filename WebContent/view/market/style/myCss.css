@@ -1,0 +1,60 @@
+.mycataiframe{
+	position: relative;
+	margin-top: 0px;
+	width: auto;
+	height: 520px;
+}
+
+.imgAll2{
+	position: relative;
+	margin: 0 auto;
+	width: 920px;
+	height:600px;
+}
+
+.imgAll2 .picture2{
+	position: relative;
+	width: 260px;
+	height:230px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.imgAll2 .picture2 img{
+	position: relative;
+	width: 100%;
+    height:160px;
+	margin-top: 2px;
+}
+
+.imgAll2 .picture2 .title{
+	position: relative;
+	font-size: 16px;
+	color: #000;
+	height: 32px;
+	width: 80px;
+	text-align: left;
+	display: inline-block;
+}
+
+.imgAll2 .picture2 .price{
+	font-size: 17px;
+	height: 32px;
+	color: #F00;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 10px;
+	width: 80px;
+	
+}
+
+.imgAll2 .picture2 .canche{
+	width: 80px;
+	height: 32px;
+	float: right;
+	text-align: right;
+	text-decoration:none; 
+	color: #D34100;
+}
